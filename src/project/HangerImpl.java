@@ -3,16 +3,18 @@ package project;
 import java.util.ArrayList;
 
 public class HangerImpl implements Hanger {
-	private ArrayList<Jet> fleet;
+	public static int jetId = 0;
+	private ArrayList<JetImpl> fleet;
 
 	public HangerImpl() {
 		super();
-		this.fleet = new ArrayList<Jet>();
+		this.fleet = new ArrayList<JetImpl>();
 	}
+
 	/**
 	 * @param fleet
 	 */
-	public HangerImpl(ArrayList<Jet> fleet) {
+	public HangerImpl(ArrayList<JetImpl> fleet) {
 		super();
 		this.fleet = fleet;
 	}
@@ -20,19 +22,56 @@ public class HangerImpl implements Hanger {
 	/**
 	 * @return the fleet
 	 */
-	public ArrayList<Jet> getFleet() {
+	public ArrayList<JetImpl> getFleet() {
 		return fleet;
 	}
+
 	/**
-	 * @param fleet the fleet to set
+	 * @param fleet
+	 *            the fleet to set
 	 */
-	public void setFleet(ArrayList<Jet> fleet) {
+	public void setFleet(ArrayList<JetImpl> fleet) {
 		this.fleet = fleet;
 	}
+
 	@Override
-	public void addJet(Jet jet) {
-		// TODO Auto-generated method stub
+	public void addJet(JetImpl jet) {
+		fleet.add(jet);
 
 	}
+
+	/**
+	 * @return the fastest jet in the fleet
+	 */
+	public JetImpl getFastestJet() {
+		if (fleet.size() == 0) {
+			return null;
+		}
+		JetImpl fastest = fleet.get(0);
+		for(JetImpl jet : fleet) {
+			if (jet.getSpeed() > fastest.getSpeed()) {
+				fastest = jet;
+			}
+		}
+		return fastest;
+	}
+
+	/**
+	 * @return the longest range jet in the fleet
+	 */
+	public JetImpl getLongestRangeJet() {
+		if (fleet.size() == 0) {
+			return null;
+		}
+		JetImpl fastest = fleet.get(0);
+		for(JetImpl jet : fleet) {
+			if (jet.getRange() > fastest.getRange()) {
+				fastest = jet;
+			}
+		}
+		return fastest;
+	}
+
+
 
 }

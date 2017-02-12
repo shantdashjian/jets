@@ -15,9 +15,9 @@ public class Airliner extends JetImpl {
 	private int numSeats;
 	private String airline;
 
-	public Airliner(String model, double speed, int range, int capacity, double price, Pilot pilot, int numSeats,
+	public Airliner(int id, String model, double speed, int range, int capacity, double price, Pilot pilot, int numSeats,
 			String airline) {
-		super(model, speed, range, capacity, price, pilot);
+		super(id, model, speed, range, capacity, price, pilot);
 		this.numSeats = numSeats;
 		this.airline = airline;
 	}

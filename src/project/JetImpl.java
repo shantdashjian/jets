@@ -1,6 +1,7 @@
 package project;
 
 public abstract class JetImpl implements Jet {
+	private int id;
 	private String model;
 	private double speed;
 	private int range;
@@ -15,14 +16,27 @@ public abstract class JetImpl implements Jet {
 	 * @param price
 	 * @param pilot
 	 */
-	public JetImpl(String model, double speed, int range, int capacity, double price, Pilot pilot) {
+	public JetImpl(Integer id, String model, double speed, int range, int capacity, double price, Pilot pilot) {
 		super();
+		this.id = id;
 		this.model = model;
 		this.speed = speed;
 		this.range = range;
 		this.capacity = capacity;
 		this.price = price;
 		this.pilot = pilot;
+	}
+	/**
+	 * @return the id
+	 */
+	public int getId() {
+		return id;
+	}
+	/**
+	 * @param id the id to set
+	 */
+	public void setId(int id) {
+		this.id = id;
 	}
 	/**
 	 * @return the model
@@ -101,5 +115,6 @@ public abstract class JetImpl implements Jet {
 	public double getSpeedInMach() {
 		return Jet.convertToMach(getSpeed());
 	}
+
 
 }

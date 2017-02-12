@@ -4,8 +4,8 @@ public class BusinessJet extends JetImpl {
 
 	private String owner;
 
-	public BusinessJet(String model, double speed, int range, int capacity, double price, Pilot pilot, String owner) {
-		super(model, speed, range, capacity, price, pilot);
+	public BusinessJet(int id, String model, double speed, int range, int capacity, double price, Pilot pilot, String owner) {
+		super(id, model, speed, range, capacity, price, pilot);
 		this.owner = owner;
 	}
 

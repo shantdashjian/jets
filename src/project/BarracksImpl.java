@@ -33,8 +33,7 @@ public class BarracksImpl implements Barracks {
 
 	@Override
 	public void hirePilot(Pilot pilot) {
-		// TODO Auto-generated method stub
-
+		pilots.add(pilot);
 	}
 
 }

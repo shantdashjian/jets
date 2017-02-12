@@ -1,5 +1,5 @@
 package project;
 
 public interface Hanger {
-	void addJet(Jet jet);
+	void addJet(JetImpl jet);
 }

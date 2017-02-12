@@ -18,6 +18,7 @@ public class AirlinerTests {
 
 	@Before
 	public void setUp() {
+		int id = 1;
 		String model = "A300";
 		double speed = 593.736;
 		int range = 4050;
@@ -29,7 +30,7 @@ public class AirlinerTests {
 		Pilot pilot = new PilotImpl(pilotName, pilotAge, pilotExperience);
 		int numSeats = 300;
 		String airline = "American";
-		 airliner = new Airliner(model, speed, range, capacity, price, pilot, numSeats, airline);
+		airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
 	}
 
 	@After
