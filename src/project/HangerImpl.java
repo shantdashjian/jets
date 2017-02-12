@@ -3,7 +3,6 @@ package project;
 import java.util.ArrayList;
 
 public class HangerImpl implements Hanger {
-	public static int jetId = 0;
 	private ArrayList<JetImpl> fleet;
 
 	public HangerImpl() {
@@ -70,6 +69,12 @@ public class HangerImpl implements Hanger {
 			}
 		}
 		return fastest;
+	}
+
+	public void displayFleet(){
+		for(JetImpl jetImpl : getFleet()) {
+			System.out.println(jetImpl);
+		}
 	}
 
 

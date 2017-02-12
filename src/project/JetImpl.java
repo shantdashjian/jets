@@ -1,6 +1,8 @@
 package project;
 
 public abstract class JetImpl implements Jet {
+	public static int jetId = 0;
+
 	private int id;
 	private String model;
 	private double speed;
@@ -25,6 +27,17 @@ public abstract class JetImpl implements Jet {
 		this.capacity = capacity;
 		this.price = price;
 		this.pilot = pilot;
+	}
+	/**
+	 * @param model
+	 * @param speed
+	 * @param range
+	 * @param capacity
+	 * @param price
+	 * @param pilot
+	 */
+	public JetImpl(String model, double speed, int range, int capacity, double price, Pilot pilot) {
+		this(++jetId, model, speed, range, capacity, price, pilot);
 	}
 	/**
 	 * @return the id
@@ -116,5 +129,20 @@ public abstract class JetImpl implements Jet {
 		return Jet.convertToMach(getSpeed());
 	}
 
+	@Override
+	public String toString(){
+		StringBuilder builder = new StringBuilder();
+		builder.append(getClass().getSimpleName() + " [");
+		builder.append("Id= " + getId());
+		builder.append(", model= " + getModel());
+		builder.append(", speed= " + getSpeedInMach() + " Mach");
+		builder.append(", range= " + getRange() + " nm");
+		builder.append(", capacity= " + getCapacity() + " gal");
+		builder.append(", price= $" + getPrice() + " million");
+		builder.append(", " + getPilot());
+		builder.append("] ");
+
+		return builder.toString();
+	}
 
 }
