@@ -13,7 +13,6 @@ public class JetsAdminCenter {
 		populateBarracks();
 		populateHanger();
 		runMenuOptions();
-
 	}
 
 	public static void populateBarracks() {
@@ -121,6 +120,7 @@ public class JetsAdminCenter {
 			option = getInt("Enter an option (1-7): ");
 			System.out.println();
 
+			Pilot pilot;
 			switch (option) {
 			case 1:
 				System.out.println("Here is the entire fleet of jets:");
@@ -134,8 +134,51 @@ public class JetsAdminCenter {
 				System.out.println("Here is the longest range jet:");
 				System.out.println(hanger.getLongestRangeJet());
 				break;
+			case 4:
+				JetImpl jet;
+				String model = getString("Enter model: ");
+				double speed = getDouble("Enter speed in MPH: ");
+				int range = getInt("Enter range in nm: ");
+				int capacity = getInt("Enter fuel capacity in US gallons: ");
+				double price = getDouble("Enter price is $ millions: ");
+				pilot = barracks.getPilots().get(generator.nextInt(barracks.getPilots().size()));
+				int jetClass;
+				do {
+					jetClass = getInt("Enter 1 for Airliner and 2 for Business Jet: ");
+				} while (jetClass < 1 || jetClass > 2);
+				if (jetClass == 1) {
+					int numSeats = getInt("Enter number of seats: ");
+					String airline = getString("Enter airline: ");
+					jet = new Airliner(model, speed, range, capacity, price, pilot, numSeats, airline);
+
+				} else {
+					String owner = getString("Enter owner name: ");
+					jet = new BusinessJet(model, speed, range, capacity, price, pilot, owner);
+				}
+				hanger.addJet(jet);
+				System.out.println();
+				System.out.println("New jet added to the fleet: ");
+				System.out.println(jet);
+				break;
+			case 5:
+				String name = getString("Enter pilot name: ");
+				int age = getInt("Enter pilot age: ");
+				int experience = getInt("Enter years of experience: ");
+				pilot = new PilotImpl(name, age, experience);
+				barracks.hirePilot(pilot);
+				System.out.println();
+				System.out.println("New pilot added to the barracks: ");
+				System.out.println(pilot);
+				break;
+			case 6:
+				System.out.println("Here is the entire barracks:");
+				barracks.displayPilots();
+				break;
+			default:
+				break;
 			}
 		} while (option != 7);
+		System.out.println("Have a safe flight!");
 	}
 
 	public static int getInt(String prompt) {
@@ -145,7 +188,25 @@ public class JetsAdminCenter {
 			kb.next();
 		}
 		return kb.nextInt();
+	}
 
+	public static double getDouble(String prompt) {
+		System.out.print(prompt);
+		while (!kb.hasNextDouble()) {
+			System.out.print(prompt);
+			kb.next();
+		}
+		return kb.nextDouble();
+	}
+
+	public static String getString(String prompt) {
+		kb.nextLine();
+		System.out.print(prompt);
+		while (!kb.hasNextLine()) {
+			System.out.print(prompt);
+			kb.nextLine();
+		}
+		return kb.nextLine();
 	}
 
 }

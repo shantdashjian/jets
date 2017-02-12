@@ -36,4 +36,10 @@ public class BarracksImpl implements Barracks {
 		pilots.add(pilot);
 	}
 
+	public void displayPilots(){
+		for(Pilot pilot : getPilots()) {
+			System.out.println(pilot);
+		}
+	}
+
 }
