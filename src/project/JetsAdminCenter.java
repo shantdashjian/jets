@@ -106,6 +106,7 @@ public class JetsAdminCenter {
 	public static void runMenuOptions() {
 		int option = 7;
 		do {
+			System.out.println();
 			System.out.println("******************************************");
 			System.out.println("* Welcome to the Super Jets Admin Center *");
 			System.out.println("******************************************");
@@ -118,10 +119,20 @@ public class JetsAdminCenter {
 			System.out.println("7. Quit");
 			System.out.println("******************************************");
 			option = getInt("Enter an option (1-7): ");
+			System.out.println();
 
 			switch (option) {
 			case 1:
+				System.out.println("Here is the entire fleet of jets:");
 				hanger.displayFleet();
+				break;
+			case 2:
+				System.out.println("Here is the fastest jet in the fleet:");
+				System.out.println(hanger.getFastestJet());
+				break;
+			case 3:
+				System.out.println("Here is the longest range jet:");
+				System.out.println(hanger.getLongestRangeJet());
 				break;
 			}
 		} while (option != 7);

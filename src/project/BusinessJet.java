@@ -33,7 +33,7 @@ public class BusinessJet extends JetImpl {
 		builder.append(super.toString());
 		builder.deleteCharAt(builder.length() - 1);
 		builder.append(", owner= " + getOwner());
-		builder.append("] ");
+		builder.append("]");
 
 		return builder.toString();
 	}

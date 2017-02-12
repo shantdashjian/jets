@@ -140,7 +140,7 @@ public abstract class JetImpl implements Jet {
 		builder.append(", capacity= " + getCapacity() + " gal");
 		builder.append(", price= $" + getPrice() + " million");
 		builder.append(", " + getPilot());
-		builder.append("] ");
+		builder.append("]");
 
 		return builder.toString();
 	}

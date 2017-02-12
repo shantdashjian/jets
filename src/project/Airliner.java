@@ -66,7 +66,7 @@ public class Airliner extends JetImpl {
 		builder.deleteCharAt(builder.length() - 1);
 		builder.append(", seats= " + getNumSeats());
 		builder.append(", airline= " + getAirline());
-		builder.append("] ");
+		builder.append("]");
 
 		return builder.toString();
 	}
