@@ -47,7 +47,7 @@ public class HangerImpl implements Hanger {
 			return null;
 		}
 		JetImpl fastest = fleet.get(0);
-		for(JetImpl jet : fleet) {
+		for (JetImpl jet : fleet) {
 			if (jet.getSpeed() > fastest.getSpeed()) {
 				fastest = jet;
 			}
@@ -63,7 +63,7 @@ public class HangerImpl implements Hanger {
 			return null;
 		}
 		JetImpl fastest = fleet.get(0);
-		for(JetImpl jet : fleet) {
+		for (JetImpl jet : fleet) {
 			if (jet.getRange() > fastest.getRange()) {
 				fastest = jet;
 			}
@@ -71,12 +71,13 @@ public class HangerImpl implements Hanger {
 		return fastest;
 	}
 
-	public void displayFleet(){
-		for(JetImpl jetImpl : getFleet()) {
+	/**
+	 * displays the fleet of jets
+	 */
+	public void displayFleet() {
+		for (JetImpl jetImpl : getFleet()) {
 			System.out.println(jetImpl);
 		}
 	}
-
-
 
 }

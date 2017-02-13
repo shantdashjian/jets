@@ -3,6 +3,30 @@ package project;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * <h1>JetsAdminCenter </h1>
+ * <p> This is the driver class with main() for the Jets application.
+ * It offers a menu with 7 options to display and update information about the jets and the pilots.
+ * </p>
+ * This is how the interface looks like:
+ * <br>
+ * ******************************************<br>
+ * * Welcome to the Super Jets Admin Center *<br>
+ * ******************************************<br>
+ * 1. List the fleet<br>
+ * 2. View the fastest jet<br>
+ * 3. View the jet with longest range<br>
+ * 4. Add a new jet to the fleet<br>
+ * 5. Hire a pilot<br>
+ * 6. List all pilots<br>
+ * 7. Quit<br>
+ * *****************************************<br>
+ * Enter an option (1-7):<br>
+ * <br>
+ * @author Shaun Dashjian
+ * @version 1.0
+ */
+
 public class JetsAdminCenter {
 	public static HangerImpl hanger = new HangerImpl();
 	public static BarracksImpl barracks = new BarracksImpl();
@@ -15,6 +39,9 @@ public class JetsAdminCenter {
 		runMenuOptions();
 	}
 
+	/**
+	 * populates the barracks with 5 pilots
+	 */
 	public static void populateBarracks() {
 		String name = "Jim Reagan";
 		int age = 45;
@@ -48,6 +75,9 @@ public class JetsAdminCenter {
 
 	}
 
+	/**
+	 * populates the hanger with 5 jets
+	 */
 	public static void populateHanger() {
 		String model = "A300";
 		double speed = 593.736;
@@ -102,6 +132,9 @@ public class JetsAdminCenter {
 		hanger.addJet(businessJet);
 	}
 
+	/**
+	 * displays 7 menu options and runs each based on user input
+	 */
 	public static void runMenuOptions() {
 		int option = 7;
 		do {
@@ -181,6 +214,11 @@ public class JetsAdminCenter {
 		System.out.println("Have a safe flight!");
 	}
 
+	/**
+	 * helper method to ensure input is int
+	 * @param prompt
+	 * @return int
+	 */
 	public static int getInt(String prompt) {
 		System.out.print(prompt);
 		while (!kb.hasNextInt()) {
@@ -190,6 +228,11 @@ public class JetsAdminCenter {
 		return kb.nextInt();
 	}
 
+	/**
+	 * helper method to ensure input is double
+	 * @param prompt
+	 * @return double
+	 */
 	public static double getDouble(String prompt) {
 		System.out.print(prompt);
 		while (!kb.hasNextDouble()) {
@@ -199,6 +242,11 @@ public class JetsAdminCenter {
 		return kb.nextDouble();
 	}
 
+	/**
+	 * helper method to ensure input is String
+	 * @param prompt
+	 * @return String
+	 */
 	public static String getString(String prompt) {
 		kb.nextLine();
 		System.out.print(prompt);

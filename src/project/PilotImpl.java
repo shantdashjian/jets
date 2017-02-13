@@ -4,6 +4,7 @@ public class PilotImpl implements Pilot {
 	private String name;
 	private int age;
 	private int experience;
+
 	/**
 	 * @param name
 	 * @param age
@@ -15,7 +16,6 @@ public class PilotImpl implements Pilot {
 		this.experience = experience;
 	}
 
-
 	/**
 	 * @return the name
 	 */
@@ -23,14 +23,13 @@ public class PilotImpl implements Pilot {
 		return name;
 	}
 
-
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
-
 
 	/**
 	 * @return the age
@@ -39,14 +38,13 @@ public class PilotImpl implements Pilot {
 		return age;
 	}
 
-
 	/**
-	 * @param age the age to set
+	 * @param age
+	 *            the age to set
 	 */
 	public void setAge(int age) {
 		this.age = age;
 	}
-
 
 	/**
 	 * @return the experience
@@ -55,26 +53,22 @@ public class PilotImpl implements Pilot {
 		return experience;
 	}
 
-
 	/**
-	 * @param experience the experience to set
+	 * @param experience
+	 *            the experience to set
 	 */
 	public void setExperience(int experience) {
 		this.experience = experience;
 	}
 
-
 	@Override
-	public String toString(){
+	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Pilot [");
 		builder.append("name= " + getName());
 		builder.append(", age= " + getAge());
 		builder.append(", experience= " + getExperience());
 		builder.append("] ");
-
 		return builder.toString();
 	}
-
-
 }
