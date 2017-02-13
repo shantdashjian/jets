@@ -14,7 +14,7 @@ import org.junit.Test;
  *
  */
 public class AirlinerTests {
-	private Airliner airliner;
+	private Jet airliner;
 
 	@Before
 	public void setUp() {

@@ -4,12 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 /**
- * <h1>JetsAdminCenter </h1>
- * <p> This is the driver class with main() for the Jets application.
- * It offers a menu with 7 options to display and update information about the jets and the pilots.
+ * <h1>JetsAdminCenter</h1>
+ * <p>
+ * This is the driver class with main() for the Jets application. It offers a
+ * menu with 7 options to display and update information about the jets and the
+ * pilots.
  * </p>
- * This is how the interface looks like:
- * <br>
+ * This is how the interface looks like: <br>
  * ******************************************<br>
  * * Welcome to the Super Jets Admin Center *<br>
  * ******************************************<br>
@@ -23,13 +24,14 @@ import java.util.Scanner;
  * *****************************************<br>
  * Enter an option (1-7):<br>
  * <br>
+ *
  * @author Shaun Dashjian
  * @version 1.0
  */
 
 public class JetsAdminCenter {
-	public static HangerImpl hanger = new HangerImpl();
-	public static BarracksImpl barracks = new BarracksImpl();
+	public static Hanger hanger = new HangerImpl();
+	public static Barracks barracks = new BarracksImpl();
 	public static Random generator = new Random();
 	public static Scanner kb = new Scanner(System.in);
 
@@ -87,7 +89,7 @@ public class JetsAdminCenter {
 		int numSeats = 300;
 		String airline = "American";
 		Pilot pilot = barracks.getPilots().get(generator.nextInt(barracks.getPilots().size()));
-		JetImpl airliner = new Airliner(model, speed, range, capacity, price, pilot, numSeats, airline);
+		Jet airliner = new Airliner(model, speed, range, capacity, price, pilot, numSeats, airline);
 		hanger.addJet(airliner);
 
 		model = "A310";
@@ -150,7 +152,7 @@ public class JetsAdminCenter {
 			System.out.println("6. List all pilots");
 			System.out.println("7. Quit");
 			System.out.println("******************************************");
-			option = getInt("Enter an option (1-7): ");
+			option = InputHelper.getInt("Enter an option (1-7): ");
 			System.out.println();
 
 			Pilot pilot;
@@ -169,23 +171,23 @@ public class JetsAdminCenter {
 				break;
 			case 4:
 				JetImpl jet;
-				String model = getString("Enter model: ");
-				double speed = getDouble("Enter speed in MPH: ");
-				int range = getInt("Enter range in nm: ");
-				int capacity = getInt("Enter fuel capacity in US gallons: ");
-				double price = getDouble("Enter price is $ millions: ");
+				String model = InputHelper.getString("Enter model: ");
+				double speed = InputHelper.getDouble("Enter speed in MPH: ");
+				int range = InputHelper.getInt("Enter range in nm: ");
+				int capacity = InputHelper.getInt("Enter fuel capacity in US gallons: ");
+				double price = InputHelper.getDouble("Enter price is $ millions: ");
 				pilot = barracks.getPilots().get(generator.nextInt(barracks.getPilots().size()));
 				int jetClass;
 				do {
-					jetClass = getInt("Enter 1 for Airliner and 2 for Business Jet: ");
+					jetClass = InputHelper.getInt("Enter 1 for Airliner and 2 for Business Jet: ");
 				} while (jetClass < 1 || jetClass > 2);
 				if (jetClass == 1) {
-					int numSeats = getInt("Enter number of seats: ");
-					String airline = getString("Enter airline: ");
+					int numSeats = InputHelper.getInt("Enter number of seats: ");
+					String airline = InputHelper.getString("Enter airline: ");
 					jet = new Airliner(model, speed, range, capacity, price, pilot, numSeats, airline);
 
 				} else {
-					String owner = getString("Enter owner name: ");
+					String owner = InputHelper.getString("Enter owner name: ");
 					jet = new BusinessJet(model, speed, range, capacity, price, pilot, owner);
 				}
 				hanger.addJet(jet);
@@ -194,9 +196,9 @@ public class JetsAdminCenter {
 				System.out.println(jet);
 				break;
 			case 5:
-				String name = getString("Enter pilot name: ");
-				int age = getInt("Enter pilot age: ");
-				int experience = getInt("Enter years of experience: ");
+				String name = InputHelper.getString("Enter pilot name: ");
+				int age = InputHelper.getInt("Enter pilot age: ");
+				int experience = InputHelper.getInt("Enter years of experience: ");
 				pilot = new PilotImpl(name, age, experience);
 				barracks.hirePilot(pilot);
 				System.out.println();
@@ -212,49 +214,6 @@ public class JetsAdminCenter {
 			}
 		} while (option != 7);
 		System.out.println("Have a safe flight!");
-	}
-
-	/**
-	 * helper method to ensure input is int
-	 * @param prompt
-	 * @return int
-	 */
-	public static int getInt(String prompt) {
-		System.out.print(prompt);
-		while (!kb.hasNextInt()) {
-			System.out.print(prompt);
-			kb.next();
-		}
-		return kb.nextInt();
-	}
-
-	/**
-	 * helper method to ensure input is double
-	 * @param prompt
-	 * @return double
-	 */
-	public static double getDouble(String prompt) {
-		System.out.print(prompt);
-		while (!kb.hasNextDouble()) {
-			System.out.print(prompt);
-			kb.next();
-		}
-		return kb.nextDouble();
-	}
-
-	/**
-	 * helper method to ensure input is String
-	 * @param prompt
-	 * @return String
-	 */
-	public static String getString(String prompt) {
-		kb.nextLine();
-		System.out.print(prompt);
-		while (!kb.hasNextLine()) {
-			System.out.print(prompt);
-			kb.nextLine();
-		}
-		return kb.nextLine();
 	}
 
 }

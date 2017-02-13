@@ -3,25 +3,24 @@ package project;
 import java.util.ArrayList;
 
 public class HangerImpl implements Hanger {
-	private ArrayList<JetImpl> fleet;
+	private ArrayList<Jet> fleet;
 
 	public HangerImpl() {
-		super();
-		this.fleet = new ArrayList<JetImpl>();
+		this.fleet = new ArrayList<Jet>();
 	}
 
 	/**
 	 * @param fleet
 	 */
-	public HangerImpl(ArrayList<JetImpl> fleet) {
-		super();
+	public HangerImpl(ArrayList<Jet> fleet) {
 		this.fleet = fleet;
 	}
 
 	/**
 	 * @return the fleet
 	 */
-	public ArrayList<JetImpl> getFleet() {
+	@Override
+	public ArrayList<Jet> getFleet() {
 		return fleet;
 	}
 
@@ -29,25 +28,20 @@ public class HangerImpl implements Hanger {
 	 * @param fleet
 	 *            the fleet to set
 	 */
-	public void setFleet(ArrayList<JetImpl> fleet) {
+	public void setFleet(ArrayList<Jet> fleet) {
 		this.fleet = fleet;
-	}
-
-	@Override
-	public void addJet(JetImpl jet) {
-		fleet.add(jet);
-
 	}
 
 	/**
 	 * @return the fastest jet in the fleet
 	 */
-	public JetImpl getFastestJet() {
+	@Override
+	public Jet getFastestJet() {
 		if (fleet.size() == 0) {
 			return null;
 		}
-		JetImpl fastest = fleet.get(0);
-		for (JetImpl jet : fleet) {
+		Jet fastest = fleet.get(0);
+		for (Jet jet : fleet) {
 			if (jet.getSpeed() > fastest.getSpeed()) {
 				fastest = jet;
 			}
@@ -58,12 +52,13 @@ public class HangerImpl implements Hanger {
 	/**
 	 * @return the longest range jet in the fleet
 	 */
-	public JetImpl getLongestRangeJet() {
+	@Override
+	public Jet getLongestRangeJet() {
 		if (fleet.size() == 0) {
 			return null;
 		}
-		JetImpl fastest = fleet.get(0);
-		for (JetImpl jet : fleet) {
+		Jet fastest = fleet.get(0);
+		for (Jet jet : fleet) {
 			if (jet.getRange() > fastest.getRange()) {
 				fastest = jet;
 			}
@@ -74,10 +69,23 @@ public class HangerImpl implements Hanger {
 	/**
 	 * displays the fleet of jets
 	 */
+	@Override
 	public void displayFleet() {
-		for (JetImpl jetImpl : getFleet()) {
-			System.out.println(jetImpl);
+		for (Jet jet : getFleet()) {
+			System.out.println(jet);
 		}
+	}
+
+	/**
+	 * adds a jet to the fleet
+	 *
+	 * @param jet
+	 *            the jet to add
+	 */
+	@Override
+	public void addJet(Jet jet) {
+		fleet.add(jet);
+
 	}
 
 }

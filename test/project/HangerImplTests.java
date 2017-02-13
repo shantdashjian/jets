@@ -7,7 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class HangerImplTests {
-	private HangerImpl hanger;
+	private Hanger hanger;
 
 	@Before
 	public void setUp() throws Exception {
@@ -33,7 +33,7 @@ public class HangerImplTests {
 		Pilot pilot = new PilotImpl(pilotName, pilotAge, pilotExperience);
 		int numSeats = 300;
 		String airline = "American";
-		JetImpl airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
+		Jet airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
 		hanger.addJet(airliner);
 		int expectedOutcome = 1;
 		assertEquals(expectedOutcome, hanger.getFleet().size());
@@ -54,7 +54,7 @@ public class HangerImplTests {
 			Pilot pilot = new PilotImpl(pilotName, pilotAge, pilotExperience);
 			int numSeats = 300;
 			String airline = "American";
-			JetImpl airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
+			Jet airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
 			hanger.addJet(airliner);
 		}
 		int expectedOutcome = 2;
@@ -76,7 +76,7 @@ public class HangerImplTests {
 			Pilot pilot = new PilotImpl(pilotName, pilotAge, pilotExperience);
 			int numSeats = 300;
 			String airline = "American";
-			JetImpl airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
+			Jet airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
 			hanger.addJet(airliner);
 		}
 		int expectedOutcome = 5;
@@ -98,7 +98,7 @@ public class HangerImplTests {
 		Pilot pilot = new PilotImpl(pilotName, pilotAge, pilotExperience);
 		int numSeats = 300;
 		String airline = "American";
-		JetImpl airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
+		Jet airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
 		hanger.addJet(airliner);
 
 		id = 2;
@@ -121,7 +121,7 @@ public class HangerImplTests {
 	}
 
 	@Test
-	public void test_getFastestJet_empty_hanger_fleet_should_return_null(){
+	public void test_getFastestJet_empty_hanger_fleet_should_return_null() {
 		// fleet is empty
 		Object expectedOutcome = null;
 		assertEquals(expectedOutcome, hanger.getFastestJet());
@@ -142,7 +142,7 @@ public class HangerImplTests {
 		Pilot pilot = new PilotImpl(pilotName, pilotAge, pilotExperience);
 		int numSeats = 300;
 		String airline = "American";
-		JetImpl airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
+		Jet airliner = new Airliner(id, model, speed, range, capacity, price, pilot, numSeats, airline);
 		hanger.addJet(airliner);
 
 		id = 2;
@@ -165,11 +165,10 @@ public class HangerImplTests {
 	}
 
 	@Test
-	public void test_getLongestRangeJet_empty_hanger_fleet_should_return_null(){
+	public void test_getLongestRangeJet_empty_hanger_fleet_should_return_null() {
 		// fleet is empty
 		Object expectedOutcome = null;
 		assertEquals(expectedOutcome, hanger.getLongestRangeJet());
 	}
-
 
 }

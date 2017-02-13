@@ -19,6 +19,7 @@ public class BarracksImpl implements Barracks {
 	/**
 	 * @return the pilots
 	 */
+	@Override
 	public ArrayList<Pilot> getPilots() {
 		return pilots;
 	}
@@ -36,8 +37,9 @@ public class BarracksImpl implements Barracks {
 		pilots.add(pilot);
 	}
 
-	public void displayPilots(){
-		for(Pilot pilot : getPilots()) {
+	@Override
+	public void displayPilots() {
+		for (Pilot pilot : getPilots()) {
 			System.out.println(pilot);
 		}
 	}

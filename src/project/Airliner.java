@@ -8,10 +8,6 @@ package project;
  *
  */
 public class Airliner extends JetImpl {
-
-	/**
-	 *
-	 */
 	private int numSeats;
 	private String airline;
 

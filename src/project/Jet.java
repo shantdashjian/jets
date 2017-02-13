@@ -18,4 +18,12 @@ public interface Jet {
 		double result = Math.round(mph * 0.00131 * 100.0) / 100.0;
 		return result;
 	}
+
+	double getSpeed();
+
+	int getRange();
+
+	int getId();
+
+	void setSpeed(double d);
 }

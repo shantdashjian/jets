@@ -20,7 +20,6 @@ public abstract class JetImpl implements Jet {
 	 * @param pilot
 	 */
 	public JetImpl(Integer id, String model, double speed, int range, int capacity, double price, Pilot pilot) {
-		super();
 		this.id = id;
 		this.model = model;
 		this.speed = speed;
